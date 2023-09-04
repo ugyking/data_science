@@ -1,0 +1,75 @@
+questions
+1. What is linearity in linear regression
+2. Impact of outliers in machine learning models.
+3. Feature scaling techniques
+4. What are the common problems with decision tree and how to overcome it
+
+Practical to perform 
+5.  Feature scaling on knn dataset
+6. Gridsearch cv on Random forest dataset
+7. label encoding in decision tree dataset
+
+Answers
+
+1.  	 Linear regression is a statistical method used to model the relationship between a dependent variable and one or more independent
+ 	variables by fitting a linear equation to the observed data. The primary goal of linear regression is to find the best-fitting line that 
+	minimizes the difference between the observed data points and the predicted values on the line.
+	In linear regression, the term "linearity" refers to the assumption that the relationship between the independent variable(s) and the
+	 dependent variable can be adequately represented by a straight line. In other words, it assumes that the change in the dependent variable 
+	is proportional to a change in the independent variable(s), resulting in a linear pattern when plotted on a graph.
+
+2. 	An outlier is a data point that significantly deviates from the rest of the data in a dataset. 
+	Outliers are observations that are unusually distant from the majority of other data points, potentially 
+	indicating errors in data collection, measurement inaccuracies, or genuine rare occurrences.
+	Impacts of outliers
+		1. **Reduced Generalization**:
+			your model's ability to adapt properly to new, previously unseen data
+			Outliers that are present in the training data but not in the test data can lead to poor generalization. The model
+			 may overfit to the outliers, leading to worse performance on new, unseen data.
+		2. **Decreased Model Performance**: Outliers can increase the error of the model, making its predictions less accurate. For example, 
+			in a classification problem, outliers can lead to incorrect classification decisions.
+		3. **Increased Sensitivity**: Some algorithms, like k-nearest neighbors and decision trees, can be highly sensitive to outliers. 
+			Outliers might dominate the neighborhood of a data point in k-nearest neighbors or create splits in decision trees
+			 that don't reflect the true underlying patterns.
+		4. **Increased Training Time**: Outliers can cause convergence issues and slow down the training process, 
+			especially in iterative optimization algorithms.
+		5. **Distorted Clustering**: Outliers can disrupt the clustering process, causing clusters to be formed around the outliers 
+			rather than the intended patterns within the data.
+3. 
+	1.Min-Max Scaling (Normalization):
+			- Scales the features to a specific range, usually between 0 and 1.
+	2.Standardization (Z-score Scaling):
+		 Standardization transforms the data to have a mean (average) of 0 and a standard
+		 it is commonly used when your data has outliers or when the algorithm assumes that the features are normally distributed, like in Principal Component Analysis (PCA) or many linear models.
+	3.Robust Scaling:
+		 Similar to standardization, but it uses the median and the interquartile range (IQR) instead of the mean and standard deviation. It is less affected by outliers.
+	4.Log Transformation:
+		 It is useful when the data is highly skewed, which can be problematic for some algorithms. Applying a logarithm can make the data more symmetrical.
+	5.Power Transformation (Box-Cox and Yeo-Johnson):
+			-These transformations are used when data has non-constant variance across its range. Box-Cox is suitable for positive values only, while Yeo-Johnson works for both positive and negative values.
+			-These transformations try to make the data as close to a normal distribution as possible.
+	6.Quantile Transformation:
+	     This technique transforms the data to follow a uniform or normal distribution. It's particularly useful when dealing with non-Gaussian, skewed data.
+	7.Unit Vector Scaling (Vector Normalization):
+	    Scales each feature vector to have a length of 1, turning them into unit vectors.
+	    -Often used in text classification and clustering algorithms like K-Means.
+4. 
+	1. Overfitting:
+	
+	- Problem: Decision trees can easily become overly complex and fit the training data noise, leading to poor generalization on new data.
+	- Solution: Implement strategies to control the tree's depth, such as setting a maximum depth or requiring a minimum number of samples per leaf. Pruning techniques,
+	 like post-pruning (prune branches after tree construction) or pre-pruning (stop growing the tree when a certain condition is met), can help mitigate overfitting.
+
+	 2. Bias Towards Dominant Classes:
+
+	- Problem: In classification tasks, decision trees can bias predictions towards the majority class, especially when classes are imbalanced.
+	- Solution Use techniques like balanced class weights or resampling (oversampling or undersampling) to address class imbalance before training the tree.
+	3. Feature Scaling Irrelevance:
+
+	- Problem: Decision trees are insensitive to feature scaling, but sometimes they might struggle with features that are on very different scales.
+	- Solution: While decision trees don't require feature scaling, in some cases, standardizing or normalizing features might still help improve tree performance.
+	4. **5. Handling Numerical Features:
+
+	- Problem:Standard decision trees often split numerical features based on specific threshold values, which might not be ideal for all datasets.
+	- Solution: Consider using techniques like binning to convert numerical features into categorical ones before training the decision tree, or explore decision tree variations 
+	designed for numerical features (e.g., CART).
